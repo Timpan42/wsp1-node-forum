@@ -18,8 +18,8 @@ router.get('/', async function (req, res, next) {
 
 
 router.post('/new', async function (req, res, next) {
-    const { author, title, content } = req.body;
-    const [rows] = await promisePool.query("INSERT INTO ja15forum (author, title, content) VALUES (?, ?, ?)", [author, title, content]);
+    const { authorId, title, content } = req.body;
+    const [rows] = await promisePool.query("INSERT INTO ja15forum (author, title, content) VALUES (?, ?, ?)", [authorId, title, content]);
     res.redirect('/');
 });
 
