@@ -5,12 +5,15 @@ const app = express();
 const port = 3000;
 
 const indexRouter = require('./routes/index');
+const bodyParser = require('body-parser');
+
 
 nunjucks.configure('views', {
     autoescape: true,
     express: app,
 });
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 
 app.listen(port, () => {
