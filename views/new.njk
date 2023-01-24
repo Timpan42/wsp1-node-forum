@@ -1,5 +1,8 @@
+{% extends "layout.njk" %}
+{% block  content %}
+
 <form action="/new" method="post">
-    <label for="author">Författare</label>
+    <label for="author">Författare (Måste vara ett numer)</label>
     <input type="text" name="author" id="author">
     <label for="title">Titel</label>
     <input type="text" name="title" id="title">
@@ -7,3 +10,4 @@
     <textarea name="content" id="content" cols="30" rows="10"></textarea>
     <button type="submit">Skicka</button>
 </form>
+{% endblock %}
