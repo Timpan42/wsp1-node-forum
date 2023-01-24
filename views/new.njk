@@ -3,6 +3,11 @@
 
 <form action="/new" method="post">
     <label for="author">Författare (Måste vara ett numer)</label>
+    <select name="author" id="author">
+        {% for user in users %}
+            <option value="{{ user.id }}">{{ user.name }}</option>
+        {% endfor %}
+    </select>
     <input type="text" name="author" id="author">
     <label for="title">Titel</label>
     <input type="text" name="title" id="title">
