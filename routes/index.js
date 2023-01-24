@@ -2,24 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async function (req, res) {
-    res.send('Hello you!')
+    res.render('index.njk')
 });
-
-router.get('/', async function (req, res, next) {
-    const [rows] = await promisePool.query("SELECT * FROM tf03forum");
-    res.json({ rows });
-
-    res.render('/index.njk', {
-        rows: rows,
-        title: 'Forum',
-    });
-
-});
-
 
 router.post('/new', async function (req, res, next) {
-    const { authorId, title, content } = req.body;
-    const [rows] = await promisePool.query("INSERT INTO ja15forum (author, title, content) VALUES (?, ?, ?)", [authorId, title, content]);
+    const { author, title, content } = req.body;
+    const [rows] = await promisePool.query("INSERT INTO tf03forum (authorId, title, content) VALUES (?, ?, ?)", [author, title, content]);
     res.redirect('/');
 });
 
@@ -37,5 +25,15 @@ const pool = mysql.createPool({
     password: process.env.DB_PASSWORD,
 });
 const promisePool = pool.promise();
+
+router.get('/', async function (req, res, next) {
+    const [rows] = await promisePool.query("SELECT * FROM tf03forum");
+    res.json({ rows });
+
+    res.render('/index.njk', {
+        rows: rows,
+        title: 'Forum',
+    });
+});
 
 module.exports = router;

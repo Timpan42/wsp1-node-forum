@@ -4,7 +4,8 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "start": "nodemon -e njk,js app.js"
+        "start": "nodemon -e njk app.js & npm run scss",
+        "scss": "sass --watch scss:public/css"
     },
     "keywords": [],
     "author": "",
@@ -16,5 +17,8 @@
         "mysql2": "^2.3.3",
         "nodemon": "^2.0.20",
         "nunjucks": "^3.2.3"
+    },
+    "devDependencies": {
+        "modern-css-reset": "^1.4.0"
     }
 }

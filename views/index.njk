@@ -1,11 +1,33 @@
 {% extends "layout.njk" %}
-{% block  content %}
-<ul>
-  {% for row in rows %}
-      <li>
-          {{ row | dump }}
-      </li>
-  {% endfor %}
-</ul>
+{% block content %}
+<main class="contaner flow">
+  <header class="hero">
+    <img src="https://picsum.photos/1280/720" alt="placholder">
+    <div class="filter"></div>
+    <h1>Hej saker händer och jag vet inte varför</h1>
+  </header>
+  <section class="flow">
+    <h2>Men om du trycker den <a href="/new">länk</a></h2>
+    <p>redfrd</p>
+    <p>asded</p>
+    <p>awdawdwfwf</p>
+  </section>
+  <section class="flow">
+    <h2>Underrubrik</h2>
+    <p>mak</p>
+    <p>majorka</p>
+  </section>
 
+  <footer class="contaner">
+    <p>Copyright 2023 Lukas</p>
+    <p>Den är min copyright nu Lukas. HAHAHAHAHA ;)</p>
+  </footer>
+  <ul>
+    {% for row in rows %}
+    <li>
+      {{ row | dump }}
+    </li>
+    {% endfor %}
+  </ul>
+</main>
 {% endblock %}
