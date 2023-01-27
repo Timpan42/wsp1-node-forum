@@ -10,17 +10,20 @@
     <h2>Men om du trycker den <a href="/new">länk</a></h2>
     <p>Den leder dig till en intresant område</p>
   </section>
+ 
+  
+  <section>
+    <ul>
+      {% for row in rows %}
+          <li>
+              {{ row | dump }}
+          </li>
+      {% endfor %}
+  </ul>
+  </section>
 
   <footer class="contaner">
     <p>Copyright 2023 Lukas</p>
     <p>Den är min copyright nu Lukas. HAHAHAHAHA ;)</p>
-  </footer>
-  <ul>
-    {% for row in rows %}
-    <li>
-      {{ row | dump }}
-    </li>
-    {% endfor %}
-  </ul>
 </main>
 {% endblock %}
