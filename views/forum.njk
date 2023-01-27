@@ -1,0 +1,15 @@
+{% extends "layout.njk" %}
+{% block content %}
+  <main class="container flow">
+  <section>
+    <ul>
+      {% for row in rows %}
+          <li>
+              {{ row | dump }}
+          </li>
+      {% endfor %}
+  </ul>
+  </section>
+  </main>
+
+{% endblock %}

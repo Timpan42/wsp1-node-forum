@@ -1,28 +1,27 @@
 {% extends "layout.njk" %}
 {% block content %}
-<main class="contaner flow">
+<main class="container flow">
   <header class="hero">
-    <img src="https://picsum.photos/1280/720" alt="placholder">
-    <div class="filter"></div>
-    <h1>Hej saker händer och jag vet inte varför</h1>
+      <img class="filter" src="https://picsum.photos/1280/720" alt="placholder">
+      <div class="centered">Hej saker händer och jag vet inte varför</div>
   </header>
   <section class="flow">
     <h2>Men om du trycker den <a href="/new">länk</a></h2>
     <p>Den leder dig till en intresant område</p>
   </section>
- 
-  
+
+
   <section>
     <ul>
       {% for row in rows %}
-          <li>
-              {{ row | dump }}
-          </li>
+      <li>
+        {{ row | dump }}
+      </li>
       {% endfor %}
-  </ul>
+    </ul>
   </section>
 
-  <footer class="contaner">
+  <footer class="container">
     <p>Copyright 2023 Lukas</p>
     <p>Den är min copyright nu Lukas. HAHAHAHAHA ;)</p>
 </main>
