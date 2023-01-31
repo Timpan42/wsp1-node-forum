@@ -27,6 +27,15 @@ body {
         }
     }
 
+    img{
+        float: left;
+    }
+
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     a {
         text-decoration: none;
@@ -101,7 +110,7 @@ a {
 }
 
 a:hover {
-    background-color: rgb(38, 38, 38);
+    background-color: rgb(154, 154, 154);
 }
 
 
@@ -121,4 +130,22 @@ h2 h3 {
     left: 50%;
     transform: translate(-50%, -50%);
     color:#e5e5e5;
-  }
+}
+
+.new{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.newbutton{
+    margin-top: 10px;
+}
+
+.forum{
+    margin-top: 20px;
+}
+
+.post{
+    margin-bottom: 20px;
+}

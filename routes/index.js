@@ -16,9 +16,18 @@ router.get('/', async function (req, res, next) {
     const [rows] = await promisePool.query("SELECT * FROM tf03forum");
     res.render('index.njk', {
         rows: rows,
-        title: 'Forum',
+        title: 'Home',
     });
 });
+
+router.get('/forum', async function (req, res, next) {
+    const [rows] = await promisePool.query("SELECT * FROM tf03forum");
+    res.render('forum.njk', {
+        rows: rows,
+        title: 'Home',
+    });
+});
+
 
 router.post('/new', async function (req, res, next) {
     const { author, title, content } = req.body;

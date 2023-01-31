@@ -1,15 +1,18 @@
 {% extends "layout.njk" %}
 {% block content %}
-  <main class="container flow">
+<main class="container flow">
   <section>
-    <ul>
+    <ul class="forum">
       {% for row in rows %}
-          <li>
-              {{ row | dump }}
-          </li>
+      <li class="post">
+        <h1>{{ row.title }}</h1>
+        <h2>{{ row.authorId }}</h2>
+        <h3>{{ row.createdAt }}</h3>  
+        <p>{{ row.content }}</p>
+        <p>{{ row.id }}</p>
       {% endfor %}
-  </ul>
+    </ul>
   </section>
-  </main>
+</main>
 
 {% endblock %}
