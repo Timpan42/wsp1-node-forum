@@ -1,17 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const mysql = require('mysql2');
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASSWORD,
-});
-const promisePool = pool.promise();
+const promisePool = require('../utils/db.js');
 
-module.exports = router;
 
+
+//Home
 router.get('/', async function (req, res, next) {
     const [rows] = await promisePool.query("SELECT * FROM tf03forum");
     res.render('index.njk', {
@@ -20,15 +14,16 @@ router.get('/', async function (req, res, next) {
     });
 });
 
+//Forum
 router.get('/forum', async function (req, res, next) {
-    const [rows] = await promisePool.query("SELECT * FROM tf03forum");
+    const [rows] = await promisePool.query("SELECT tf03forum.*, tf03users.name FROM tf03forum JOIN tf03users ON tf03forum.authorId = tf03users.id");
     res.render('forum.njk', {
         rows: rows,
-        title: 'Home',
+        title: 'Forum',
     });
 });
 
-
+//New
 router.post('/new', async function (req, res, next) {
     const { author, title, content } = req.body;
 
@@ -52,3 +47,5 @@ router.get('/new', async function (req, res, next) {
         users,
     });
 });
+
+module.exports = router;

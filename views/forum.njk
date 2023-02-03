@@ -5,12 +5,15 @@
     <ul class="forum">
       {% for row in rows %}
       <li class="post">
-        <h1>{{ row.title }}</h1>
-        <h2>Author: {{ row.authorId }}</h2>
-        <h3>{{ row.createdAt }}</h3>  
-        <p>{{ row.content }}</p>
-        <p>{{ row.id }}</p>
-      {% endfor %}
+          <h1><a href="/post/{{ row.id }}">{{ row.title }}</a></h1>
+        </div>
+        <div class="content">
+          <h2>Author: <a href="/user/{{ row.id }}">{{ row.name }}</a></h2>
+          <p>Posted: {{ row.createdAt }}</p>
+          <p>{{ row.content }}</p>
+          <p>Post: {{ row.id }}</p>
+        </div>
+        {% endfor %}
     </ul>
   </section>
 </main>
